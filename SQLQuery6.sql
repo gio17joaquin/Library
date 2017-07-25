@@ -349,6 +349,11 @@ HAVING COUNT(L.loans_cardno) > 5;
 
 /*DRILL 7*/
 
-
+SELECT A.book_title, B.branch_branchname, C.copies_noofcopies
+FROM tbl_Book AS A
+INNER JOIN tbl_Bookauthor D ON A.book_id = D.aurthur_bookid
+INNER JOIN tbl_Bookcopies C ON A.book_id = C.copies_bookid
+INNER JOIN tbl_Librarybranch B ON C.copies_branchid = B.branch_branchid
+WHERE D.aurthur_name = 'Stephen King' AND B.branch_branchname = 'Central'
 
 /*END DRILL 7*/
